@@ -1,4 +1,37 @@
-<div class="jumbotron">
+<header>
+  <div class="left-section" routerLink="/">
+    <h1>Soundarya S</h1>
+    <h3>Frontend Developer</h3>
+  </div>
+
+  <nav>
+    <ul>
+      <li *ngFor="let item of navigationItems" [class.active]="isActive(item.link)">
+        <a
+          routerLink="{{ item.link }}"
+          routerLinkActive="text-danger"
+        >{{ item.label }}</a>
+        <div class="line" *ngIf="isActive(item.link)"></div> 
+      </li>
+    </ul>
+  </nav>
+  
+
+  <div class="right-section">
+    <a href="https://www.linkedin.com/in/soundarya-s-9638081bb" target="_blank">
+      <img
+        src="../../assets/linkedin-1.svg"
+        alt="LinkedIn"
+        class="linkedin-img"
+      />
+    </a>
+    <a href="https://github.com/Soundaryas123" target="_blank">
+      <img src="../../assets/github.svg" alt="GitHub" class="github-img" />
+    </a>
+  </div>
+</header>
+
+<!-- <div class="jumbotron">
     <div class="text-center">
         <h1 class="display-4">Soundarya S</h1>
         <h3>Frontend Developer</h3>
@@ -13,4 +46,4 @@
            
         </a>
     </div>
-</div>
+</div> -->

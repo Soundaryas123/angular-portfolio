@@ -1,4 +1,72 @@
-.jumbotron{
-    padding: 2rem 1rem;
-    background-color: #e9ecef;
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+
+  .left-section {
+    text-align: left;
+    cursor: pointer;
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #ff3333;
+    }
+
+    h3 {
+      margin-left: 12px;
+      font-size: 18px;
+    }
+  }
+
+  nav {
+    text-align: center;
+    ul {
+      position: relative;
+      li {
+        display: inline-block;
+        margin-right: 20px;
+        a {
+          text-decoration: none;
+          font-size: 18px;
+          color: #fff;
+          transition: color 0.3s ease;
+        }
+        .line {
+          width: 85%;
+          height: 2.5px;
+          background-color: #ff3333;
+          margin: 0 auto;
+          border-radius: 3px;
+        }
+        a:hover {
+          color: #ff3333;
+          text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+        }
+      }
+    }
+  }
+
+  .right-section {
+    text-align: right;
+    img {
+      background-color: white;
+      border-radius: 4px;
+      width: 32px;
+      height: 32px;
+    }
+    .github-img {
+      border-radius: 16px;
+      margin-left: 12px;
+    }
+    .github-img:hover,
+    .linkedin-img:hover {
+      transform: scale(1.3);
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    }
+  }
+ 
 }
