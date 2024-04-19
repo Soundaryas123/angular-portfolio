@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg shadow border m-1">
+      <div class="text-center">
+        <h2>About Me</h2>
+        <div class="profile-pic-container">
+        <div class="profile-pic"></div>
+        </div>
+        <p>I bring 2 years of experience in robust skill set from Harman Connected Services Corporation India Pvt Ltd encompassing Angular 12+, HTML5, CSS3, Bootstrap, Angular Material, GIT, Agile methodologies, SCSS, JSON, RESTful API integration, developer tools, Visual Studio Code, Tailwind, Jasmine, Karma, and GIT. In new development projects, I've led feature development and managed frontend responsibilities. My proactive approach and adaptability to evolving project requirements make me a valuable asset. I am enthusiastic about contributing my expertise and dedication to elevate projects, ensuring success, and driving innovation. </p>
+      </div>
+    </div>
+    <div class="col-lg shadow border m-1">
+        <div class="text-center">
+            <h2>Featured Project</h2>
+            <h4> {{featuredProject.name}} </h4>
+        </div>
+
+        <carousel>
+          <div *ngFor="let picture of featuredProject.pictures">
+            <slide
+              ><img
+                src={{picture}}
+                alt="slide"
+                style="display: block; width: 100%"
+              />
+            </slide>
+          </div>
+        </carousel>
+      <p class="mt-2">
+        {{featuredProject.summary}}
+      </p>
+      <p>Visit the Portfolio section to learn more!</p>
+    </div>
+  </div>
+</div>

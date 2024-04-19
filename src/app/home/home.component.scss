@@ -1,0 +1,14 @@
+.profile-pic {
+    width: 256px;
+    height: 256px;
+    background-image: url('../../assets/profile.jpeg');
+    background-size:96%;
+    background-position: center;
+    border-radius: 50%;
+   
+  }
+  
+  .profile-pic-container {
+    display: flex;
+    justify-content: center;
+  }
