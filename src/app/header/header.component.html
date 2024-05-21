@@ -1,49 +1,58 @@
-<header>
+<header class="shadow">
   <div class="left-section" routerLink="/">
     <h1>Soundarya S</h1>
     <h3>Frontend Developer</h3>
   </div>
 
-  <nav>
+  <nav class="top-navbar">
     <ul>
-      <li *ngFor="let item of navigationItems" [class.active]="isActive(item.link)">
-        <a
-          routerLink="{{ item.link }}"
-          routerLinkActive="text-danger"
-        >{{ item.label }}</a>
-        <div class="line" *ngIf="isActive(item.link)"></div> 
+      <li
+        *ngFor="let item of navigationItems"
+        [class.active]="isActive(item.link)"
+        class="me-5"
+      >
+        <div *ngIf="item.showInTopNav">
+          <a [routerLink]="item.link" routerLinkActive="text-danger">{{
+            item.label
+          }}</a>
+          <div class="line" *ngIf="isActive(item.link)"></div>
+        </div>
       </li>
     </ul>
   </nav>
-  
 
   <div class="right-section">
-    <a href="https://www.linkedin.com/in/soundarya-s-9638081bb" target="_blank">
-      <img
-        src="../../assets/linkedin-1.svg"
-        alt="LinkedIn"
-        class="linkedin-img"
-      />
-    </a>
-    <a href="https://github.com/Soundaryas123" target="_blank">
-      <img src="../../assets/github.svg" alt="GitHub" class="github-img" />
-    </a>
+    <button routerLink="/contact" class="reach-out">Reach Out</button>
+  </div>
+
+  <div class="side-navbar" [class.open]="isSideNavOpen">
+    <span class="close-side-nav" (click)="closeSideNav()"> &times;</span>
+    <div>
+      <nav>
+        <ul class="d-flex flex-column mt-4">
+          <li
+            *ngFor="let item of navigationItems"
+            [class.active]="isActive(item.link)"
+            class="me-5"
+          >
+            <a
+              [routerLink]="item.link"
+              routerLinkActive="text-danger"
+              (click)="closeSideNav()"
+              >{{ item.label }}</a
+            >
+            <div class="line" *ngIf="isActive(item.link)"></div>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div
+    class="side-nav"
+    style="font-size: 2.3rem; margin-bottom: 0.5rem; cursor: pointer"
+    (click)="toggleSideNav()"
+  >
+    ≡
   </div>
 </header>
-
-<!-- <div class="jumbotron">
-    <div class="text-center">
-        <h1 class="display-4">Soundarya S</h1>
-        <h3>Frontend Developer</h3>
-    </div>
-    <div style="text-align: right;">
-        <a href="www.linkedin.com/in/soundarya-s-9638081bb"  target="_blank" class="">
-            <img src="../../assets/linkedin-1.svg" alt="" width="32" height="32" class="rounded-circle  me-2">
-            
-        </a>
-        <a href="https://github.com/Soundaryas123"  target="_blank" class="">
-            <img src="../../assets/github.svg" alt="" width="32" height="32" class="rounded-circle me-2">
-           
-        </a>
-    </div>
-</div> -->

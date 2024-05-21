@@ -1,36 +1,48 @@
-<div class="modal-header">
-  <h2>
-    {{ project.name }}
-  </h2>
-  <button class="btn-close" (click)="bsModalRef.hide()"></button>
-</div>
+<div class="custom-modal">
+  <div class="modal-header">
+    <h2>{{ project.name }}</h2>
+    <button class="btn-close" (click)="bsModalRef.hide()"></button>
+  </div>
 
-<div class="modal-body">
-  <carousel>
-    <div *ngFor="let picture of project.pictures">
-      <slide>
-        <img
-          src={{picture}}
-          alt="slide"
-          style="display: block; width: 100%"
-        />
-      </slide>
-    </div>
-  </carousel>
+  <div class="modal-body">
+    <carousel>
+      <div *ngFor="let picture of project.pictures">
+        <slide>
+          <ng-container *ngIf="project.projectLink; else noLink">
+            <a [href]="project.projectLink" target="_blank">
+              <img
+                [src]="picture"
+                alt="slide"
+                style="display: block; width: 100%"
+              />
+            </a>
+          </ng-container>
+          <ng-template #noLink>
+            <img
+              [src]="picture"
+              alt="slide"
+              style="display: block; width: 100%"
+            />
+          </ng-template>
+        </slide>
+      </div>
+    </carousel>
 
-  <h3 class="mt-2">Description</h3>
-  <p>{{ project.description }}</p>
-  <p>
-    You can find this project on Github
-    <a href={{project.projectLink}} target="_blank">here</a>
-  </p>
-  <hr />
-  <div class="d-flex flex-wrap">
-    <div *ngFor="let tag of project.tags">
-      <div class="tag me-2 mb-1" [style.background-color]="tag.color">
-        {{ tag }}
+    <h3 class="mt-2">Description</h3>
+    <p>{{ project.description }}</p>
+    <ng-container *ngIf="project.projectGitLink">
+      <p>
+        You can find this project on Github
+        <a [href]="project.projectGitLink" target="_blank">here</a>
+      </p>
+    </ng-container>
+    <hr />
+    <div class="d-flex flex-wrap">
+      <div *ngFor="let tag of project.tags">
+        <div class="tag me-2 mb-1" [style.background-color]="tag.color">
+          {{ tag }}
+        </div>
       </div>
     </div>
   </div>
 </div>
-

@@ -1,77 +1,38 @@
-<div class="containter text-center">
-  <button class="btn btn-primary mb-5 shadow border" (click)="downloadFile()">
-    Download PDF Resume
-  </button>
-  <div class="pb-2">
-    <accordion [isAnimated]="true" class="shadow">
-      <accordion-group [(isOpen)]="isWorkExperienceOpen">
-        <button
-          class="btn btn-block justify-content-between d-flex w-100"
-          accordion-heading
-        >
-          <div style="visibility: hidden">></div>
-          <div class="btn-link">Work Experience</div>
-          <div style="width: 10.9px">
-            <div style="color: white" *ngIf="!isWorkExperienceOpen">></div>
-            <div style="color: white" *ngIf="isWorkExperienceOpen">v</div>
+<div class="container my-5">
+  <div class="text-center">
+    <button
+      class="btn btn-primary mb-5 px-4 py-2 fs-4 bg-black text-danger rounded-4 shadow border"
+      (click)="downloadFile()"
+    >
+      Download PDF Resume
+    </button>
+    <div class="pb-2">
+      <accordion [isAnimated]="true" class="shadow">
+        <accordion-group *ngFor="let section of sections">
+          <button
+            class="btn btn-block justify-content-between d-flex w-100 bg-black"
+            accordion-heading
+            (click)="toggleSection(section)"
+          >
+            <div style="visibility: hidden">></div>
+            <div class="btn text-danger">{{ section.heading }}</div>
+            <div style="width: 10.9px">
+              <div style="color: white" *ngIf="!section.isOpen">▼</div>
+              <div style="color: white" *ngIf="section.isOpen">▲</div>
+            </div>
+          </button>
+          <div class="text-center mx-auto">
+
+            <ul *ngIf="section.isOpen"  >
+              <li *ngFor="let item of section.content" style="text-align: left;">
+                <strong *ngIf="item.heading">{{ item.heading }}:</strong> {{ item.definition }}
+              </li>
+            </ul>
           </div>
-        </button>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor deleniti
-        voluptatum ex. Possimus consequuntur quas ducimus iste aspernatur
-        recusandae quia similique dolorem aliquid blanditiis fugiat quibusdam
-        porro, ab, corporis quos?
-      </accordion-group>
-      <accordion-group [(isOpen)]="isEducationOpen">
-        <button
-          class="btn btn-block justify-content-between d-flex w-100"
-          accordion-heading
-        >
-          <div style="visibility: hidden">></div>
-          <div class="btn-link">Education</div>
-          <div style="width: 10.9px">
-            <div style="color: white" *ngIf="!isEducationOpen">></div>
-            <div style="color: white" *ngIf="isEducationOpen">v</div>
-          </div>
-        </button>
-        <ul style="text-align: left">
-          <li>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</li>
-          <li>Inventore nisi obcaecati nesciunt veniam, placeat</li>
-          <li>vel cupiditate assumenda non similique veritatis!</li>
-          <li>
-            Delectus odit voluptatibus nobis minus quasi nihil cumque doloremque
-            laborum!
-          </li>
-        </ul>
-      </accordion-group>
-      <accordion-group [(isOpen)]="isCertificationsOpen">
-        <button
-          class="btn btn-block justify-content-between d-flex w-100"
-          accordion-heading
-        >
-          <div style="visibility: hidden">></div>
-          <div class="btn-link">Certifications</div>
-          <div style="width: 10.9px">
-            <div style="color: white" *ngIf="!isCertificationsOpen">></div>
-            <div style="color: white" *ngIf="isCertificationsOpen">v</div>
-          </div>
-        </button>
-        llorem
-      </accordion-group>
-      <accordion-group [(isOpen)]="isSkillsOpen">
-        <button
-          class="btn btn-block justify-content-between d-flex w-100"
-          accordion-heading
-        >
-          <div style="visibility: hidden">></div>
-          <div class="btn-link">Skills</div>
-          <div style="width: 10.9px">
-            <div style="color: white" *ngIf="!isSkillsOpen">></div>
-            <div style="color: white" *ngIf="isSkillsOpen">v</div>
-          </div>
-        </button>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id soluta
-        recusandae cumque?
-      </accordion-group>
-    </accordion>
+
+
+        </accordion-group>
+      </accordion>
+    </div>
   </div>
 </div>

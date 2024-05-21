@@ -7,21 +7,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  public isSideNavOpen: boolean = false;
 
-constructor(private router:Router){
-  if (this.router.url === '/') {
-    this.router.navigateByUrl('/home');
+  constructor(private router: Router) {
+    if (this.router.url === '/') {
+      this.isSideNavOpen = false;
+      this.router.navigateByUrl('/home');
+    }
   }
-}
-  navigationItems = [
-    { label: 'Home', link: '/home', },
-    { label: 'Portfolio', link: '/portfolio',},
-    { label: 'Resume', link: '/resume', },
-    { label: 'Contact', link: '/contact',  }
+
+  public navigationItems = [
+    { label: 'Home', link: '/home', showInTopNav: true },
+    { label: 'Portfolio', link: '/portfolio', showInTopNav: true },
+    { label: 'Resume', link: '/resume', showInTopNav: true },
+    { label: 'Contact', link: '/contact', showInTopNav: false }
   ];
 
-  isActive(link: string): boolean {
+  public isActive(link: string): boolean {
     return this.router.url === link;
   }
 
+  public toggleSideNav() {
+    this.isSideNavOpen = !this.isSideNavOpen;
+  }
+
+  public closeSideNav() {
+    this.isSideNavOpen = false;
+    console.log('first');
+  }
 }

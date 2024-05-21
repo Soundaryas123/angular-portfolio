@@ -10,18 +10,18 @@ import { ProjectModalComponent } from '../project-modal/project-modal.component'
 })
 export class ProjectCardComponent {
   @Input() project = {} as Project
-  bsModalRef?: BsModalRef;
+  public bsModalRef?: BsModalRef;
 
   constructor(private modalService: BsModalService) {
 
   }
 
 
-  openProjectModal() {
+  public openProjectModal() {
     const modalOptions: ModalOptions = {
-      class: 'modal-lg',
-      initialState:{
-       project:this.project
+      // class: 'modal-lg',
+      initialState: {
+        project: this.project
       }
     }
 

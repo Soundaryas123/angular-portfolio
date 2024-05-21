@@ -9,7 +9,7 @@ import { ProjectsService } from '../_services/projects.service';
   styleUrls: ['./project-modal.component.scss']
 })
 export class ProjectModalComponent {
-  project={} as Project;
+public  project={} as Project;
   constructor(public bsModalRef: BsModalRef) {
 
   }
